@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="../angular.min.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
+    <!-- <link rel="stylesheet" href="font-awesome.min.css"> -->
+    
+    <style type="text/css">
+    .done-true{
+    	text-decoration: line-through;
+    }
+    </style>
+  </head>
+  <body>
+    <h2>ToDo List</h2>
+    <div ng-controller="Todo">
+      <ul>
+        <li ng-repeat="todo in toDoList track by $index">
+          <input type="checkbox" ng-model="todo.status">
+          <span class="done-{{todo.status}}">{{todo.task}}</span>
+          
+        </li>
+      </ul>
+      <input type="text" ng-model="newTask">
+      <input type="submit" value="Add" ng-click="addTask()">
+    </div>
+  </body>
+</html>
