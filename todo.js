@@ -25,7 +25,17 @@ function Todo($scope) {
 		$scope.clearInputFields();
   	}
 
-  	
+  	$scope.addSubTask = function(indexKey) {
+  		var subTask = $scope.createTask($scope.newSubTask);
+  		if(task!=null){
+  			$scope.addNewSubTaskInTask(subTask, indexKey);
+  		}
+  	}
+
+  	$scope.addNewSubTaskInTask = function(subTask, indexKey) {
+  		$scope.toDoList[indexKey].subTasks.push(subTask);
+  		$scope.clearInputFields();
+  	}
 
   	$scope.clearInputFields = function(){
   		$scope.newTask = '';
